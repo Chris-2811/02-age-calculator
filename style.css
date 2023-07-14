@@ -60,6 +60,7 @@ body {
 }
 
 .form-control input {
+  font-family: 'Poppins', sans-serif;
   padding: 16px;
   font-weight: 700;
   font-size: 20px;
@@ -181,7 +182,7 @@ input[type='number']::-webkit-inner-spin-button {
   .container {
     width: 840px;
     padding: 56px;
-    margin: 155px auto 138px auto;
+    margin: 154px auto 138px auto;
     gap: 47.5px;
   }
 
@@ -200,9 +201,11 @@ input[type='number']::-webkit-inner-spin-button {
   }
 
   .form-control input {
+    font-family: 'Poppins', sans-serif;
     width: 160px;
-    padding: 12px 24px;
+    padding: 11px 24px;
     font-size: 32px;
+    font-weight: 700;
     max-width: 100%;
     margin-top: 8px;
     letter-spacing: 0.3px;
