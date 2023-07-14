@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap');
 
-
 :root {
   /* Primary */
   --purple: hsl(259, 100%, 65%);
@@ -87,7 +86,6 @@ body {
 
 .form-control.error input {
   border-color: var(--light-red);
-
 }
 
 .form-control.error label {
@@ -130,24 +128,35 @@ input[type='number']::-webkit-inner-spin-button {
 
 .container-age p {
   font-family: 'Poppins', sans-serif;
+  line-height: 1.1;
 }
 
 .flex {
   display: flex;
+  align-items: center;
   gap: 10px;
+  height: 114px;
+  line-height: 1.1;
 }
+
 
 .flex span {
   color: var(--purple);
   font-style: italic;
 }
 
+.placeholder{
+  line-height: 1;
+}
+
+
+
 .placeholder.animate {
   animation: count-up 2s ease-in-out infinite;
 }
 
 @keyframes count-up {
-  0% { 
+  0% {
     transform: scale(1);
   }
   50% {
@@ -172,7 +181,8 @@ input[type='number']::-webkit-inner-spin-button {
   .container {
     width: 840px;
     padding: 56px;
-    margin: 151px auto 138px auto;
+    margin: 155px auto 138px auto;
+    gap: 47.5px;
   }
 
   .dates {
@@ -223,12 +233,10 @@ input[type='number']::-webkit-inner-spin-button {
     font-size: 56px;
     font-weight: bold;
     letter-spacing: -1px;
-    margin-top: 47.5px;
     font-size: 104px;
     font-weight: 800;
-    line-height: 1.1;
     letter-spacing: -2.08;
-    
+    margin-top: 0;
   }
 
   .icon svg {
