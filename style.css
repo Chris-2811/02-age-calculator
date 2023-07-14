@@ -71,6 +71,11 @@ body {
   cursor: pointer;
 }
 
+.form-control input::placeholder {
+  color: #151515;
+  opacity: 0.5;
+}
+
 .error-message {
   position: absolute;
   color: var(--light-red);
