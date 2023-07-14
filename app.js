@@ -61,52 +61,60 @@ function checkYear(input) {
   }
 }
 
-// Calculate and add to DOM
+
 function calculate(input) {
   if (input.classList.contains('year')) {
-    const date = new Date();
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth() + 1;
+    const currentDay = currentDate.getDate();
 
-    let ageInYears = date.getFullYear() - year.value;
-    let ageInMonth = date.getMonth() - (month.value - 1);
-    let ageInDays = date.getDate() - day.value;
+    const year = parseInt(document.querySelector('.year').value);
+    const month = parseInt(document.querySelector('.month').value);
+    const day = parseInt(document.querySelector('.day').value);
 
-    if (ageInMonth < 0 || (ageInMonths === 0 && ageInDays < 0)) {
+    let ageInYears = currentYear - year;
+    let ageInMonths = currentMonth - month;
+    let ageInDays = currentDay - day;
+
+    if (currentMonth < month || (currentMonth === month && currentDay < day)) {
       ageInYears--;
-      if (ageInMonth < 0) {
-        ageInMonth += 12;
+      if (currentMonth < month) {
+        ageInMonths = 12 - (month - currentMonth);
+      } else {
+        ageInMonths = 11;
       }
-      if (ageInDays < 0) {
-        const lastMonthDate = new Date(
-          currentDate.getFullYear(),
-          currentDate.getMonth() - 1,
-          0
-        ).getDate();
-        ageInDays += lastMonthDate;
-      }
+
+      const lastMonthDate = new Date(currentYear, currentMonth - 1, 0).getDate();
+      const remainingDays = lastMonthDate - day + currentDay;
+      ageInDays = remainingDays < lastMonthDate ? remainingDays : 0;
     }
 
     const age = {
       years: ageInYears,
-      months: ageInMonth,
+      months: ageInMonths,
       days: ageInDays,
-    }
+    };
 
-    addToDOM(age)
-
+    addToDOM(age);
   }
 }
 
+
+
+
+
 //Add To DOM
 function addToDOM(age) {
-  console.log(age)
-  yearsEl.innerHTML = `<span>${age.years}</span>`
-  monthsEl.innerHTML = `<span>${age.months}</span>`
-  daysEl.innerHTML = `<span>${age.days}</span>`
+  console.log(age);
+  yearsEl.innerHTML = `<span>${age.years}</span>`;
+  monthsEl.innerHTML = `<span>${age.months}</span>`;
+  daysEl.innerHTML = `<span>${age.days}</span>`;
 
   setTimeout(() => {
-    year.value = ''
-    month.value = ''
-    day.value = ''
+    year.value = '';
+    month.value = '';
+    day.value = '';
   }, 3000);
 }
 
@@ -134,13 +142,13 @@ function limitInputLength4() {
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   checkRequired([day, month, year]);
-  document.querySelectorAll('.placeholder').forEach(holder => {
-     holder.classList.add('animate')
+  document.querySelectorAll('.placeholder').forEach((holder) => {
+    holder.classList.add('animate');
 
     setTimeout(() => {
-      holder.classList.remove('animate')
+      holder.classList.remove('animate');
     }, 3000);
-  })
+  });
 });
 
 day.addEventListener('input', limitInputLength);
