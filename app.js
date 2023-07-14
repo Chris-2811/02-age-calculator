@@ -31,7 +31,7 @@ function checkRequired(inputArr) {
     if (item.value === '') {
       showError(item, 'This field is required');
     } else {
-      checkIfValid(1, 31, day);
+      checkValidDay(day);
       checkIfValid(1, 12, month);
       checkYear(year);
     }
@@ -40,11 +40,38 @@ function checkRequired(inputArr) {
 
 // Check if valid
 function checkIfValid(min, max, input) {
+  
   if (input.value < min || input.value > max) {
     showError(input, 'Must be a valid date');
   } else {
     showSuccess(input);
     addToDOM(input);
+  }
+}
+
+// Check valid day 
+function checkValidDay(input) {
+  let min = 1
+  let max
+
+  const isMonthWith30Days = [4, 6, 9, 11]
+
+  if(isMonthWith30Days.includes(month.value)) {
+    if (input.value < min || input.value > max) {
+      showError(input, 'Must be a valid date');
+    } else {
+      showSuccess(input);
+      addToDOM(input);
+    }
+  } else {
+    let max = 31
+
+    if (input.value < min || input.value > max) {
+      showError(input, 'Must be a valid date');
+    } else {
+      showSuccess(input);
+      addToDOM(input);
+    }
   }
 }
 

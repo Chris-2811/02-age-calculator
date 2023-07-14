@@ -20,7 +20,7 @@
 }
 
 body {
-  background-color: var(--light-grey);
+  background: var(--light-grey, #F0F0F0);
   font-family: 'Poppins', sans-serif;
 }
 
@@ -119,8 +119,8 @@ input[type='number']::-webkit-inner-spin-button {
 
 .container-age {
   font-size: 56px;
-  font-weight: bold;
   font-style: italic;
+  font-weight: 800;
   letter-spacing: -1px;
   margin-top: 32px;
   cursor: default;
@@ -159,9 +159,14 @@ input[type='number']::-webkit-inner-spin-button {
 }
 
 @media (min-width: 940px) {
+  body {
+    min-height: 100vh;
+  }
+
   .container {
     width: 840px;
     padding: 56px;
+    margin: 171px auto 138px auto;
   }
 
   .dates {
@@ -215,7 +220,9 @@ input[type='number']::-webkit-inner-spin-button {
     margin-top: 47.5px;
     font-size: 104px;
     font-weight: 800;
-    font-style: italic;
+    line-height: 1.1;
+    letter-spacing: -2.08;
+    
   }
 
   .icon svg {
